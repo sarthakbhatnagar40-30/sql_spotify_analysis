@@ -47,8 +47,8 @@ To improve query performance, we carried out the following optimization process:
 
     - We began by analyzing the performance of a query using the EXPLAIN function.
     - The query retrieved tracks based on the `artist` column, and the performance metrics were as follows:
-        - Execution time (E.T.): **5 ms**
-        - Planning time (P.T.): **0.096 ms**
+        - Execution time (E.T.): **5.613 ms**
+        - Planning time (P.T.): **0.093 ms**
     - Below is the **screenshot** of the `EXPLAIN` result before optimization:
       ![screenshot](Dataset/explain_1_query_plan.png)
 
