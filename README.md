@@ -1,12 +1,13 @@
 # Insights from Spotify Dataset 
 
-
+![Spotify](Dataset/spotify_logo.png)
 
 ## Dataset
 This project uses [Spotify Dataset on Kaggle](https://www.kaggle.com/datasets/sanjanchaudhari/spotify-dataset)
-## Overview
 
+## Overview
 This project involves analyzing a Spotify dataset with various attributes about tracks, albums, and artists using SQL. It covers an end-to-end process of normalizing a denormalized dataset, performing SQL queries of varying complexity (easy, medium, and advanced), and optimizing query performance. The primary goals of the project are to practice advanced SQL skills and generate valuable insights from the dataset.
+
 ## Practice Question
 1. Retrieve the names of all tracks that have more than 1 billion streams.
 ---
@@ -37,6 +38,7 @@ This project involves analyzing a Spotify dataset with various attributes about 
 14. Find tracks where the energy-to-liveness ratio is greater than 1.2.
 ---
 15. Calculate the cumulative sum of likes for tracks ordered by the number of views, using window functions
+
 ## Query Optimization Technique
 
 To improve query performance, we carried out the following optimization process:
@@ -48,6 +50,7 @@ To improve query performance, we carried out the following optimization process:
         - Execution time (E.T.): **5 ms**
         - Planning time (P.T.): **0.096 ms**
     - Below is the **screenshot** of the `EXPLAIN` result before optimization:
+      ![screenshot](Dataset/explain_1_query_plan.png)
 
 - **Index Creation on the `artist` Column**
     - To optimize the query performance, we created an index on the `artist` column. This ensures faster retrieval of rows where the artist is queried.
@@ -61,6 +64,15 @@ To improve query performance, we carried out the following optimization process:
         - Execution time (E.T.): **0.079 ms**
         - Planning time (P.T.): **0.130 ms**
     - Below is the **screenshot** of the `EXPLAIN` result after index creation:
+      ![screenshot](Dataset/explain_2_query_plan(1).png)
+      ![screenshot](Dataset/explain_2_query_plan(2).png)
+
+- **Graphical Performance Comparison**
+    - A graph illustrating the comparison between the initial query execution time and the optimized query execution time after index creation.
+    - **Graph view** shows the significant drop in both execution and planning times:
+      ![screenshot](Dataset/explain_1.png)
+      ![screenshot](Dataset/explain_2.png)
+
 
 This optimization shows how indexing can drastically reduce query time, improving the overall performance of our database operations in the Spotify project.
 
