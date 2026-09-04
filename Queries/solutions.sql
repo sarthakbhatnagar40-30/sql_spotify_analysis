@@ -131,3 +131,27 @@ select
 	sum(likes) over (partition by track order by views desc) as cummulative_sum_of_likes_for_each_track
 from spotify
 order by views desc;
+
+-- Query Optimization 
+
+-- Before Indexing: 
+-- Planning Time: 0.093 and Execution Time: 5.613 ms 
+
+-- Creating Index:
+create index artist_index on spotify (artist);
+
+-- After Indexing:
+-- Planning Time: 0.130 ms and Execution Time: 0.079 ms
+explain analyze 
+select 
+	artist,	
+	track, 
+	views
+from spotify
+where
+	artist = 'Gorillaz'
+	and 
+	most_played_on = 'Youtube'
+order by stream desc
+limit 25;
+
